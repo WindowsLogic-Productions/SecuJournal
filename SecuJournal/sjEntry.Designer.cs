@@ -58,8 +58,19 @@
             this.ToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.ToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.Panel1 = new System.Windows.Forms.Panel();
+            this.RFNCheckBox = new System.Windows.Forms.CheckBox();
+            this.FindPanelClose = new System.Windows.Forms.Button();
+            this.MCCheckBox = new System.Windows.Forms.CheckBox();
+            this.btnReplace = new System.Windows.Forms.Button();
+            this.txtReplacementText = new System.Windows.Forms.TextBox();
+            this.lblReplacementText = new System.Windows.Forms.Label();
+            this.btnFind = new System.Windows.Forms.Button();
+            this.txtSearchText = new System.Windows.Forms.TextBox();
+            this.lblSearchText = new System.Windows.Forms.Label();
             this.rightClickMenu.SuspendLayout();
             this.renameMenu.SuspendLayout();
+            this.Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // RichTextBox1
@@ -302,12 +313,119 @@
             this.ToolStripMenuItem6.Size = new System.Drawing.Size(162, 22);
             this.ToolStripMenuItem6.Text = "Select all";
             // 
+            // Panel1
+            // 
+            this.Panel1.Controls.Add(this.RFNCheckBox);
+            this.Panel1.Controls.Add(this.FindPanelClose);
+            this.Panel1.Controls.Add(this.MCCheckBox);
+            this.Panel1.Controls.Add(this.btnReplace);
+            this.Panel1.Controls.Add(this.txtReplacementText);
+            this.Panel1.Controls.Add(this.lblReplacementText);
+            this.Panel1.Controls.Add(this.btnFind);
+            this.Panel1.Controls.Add(this.txtSearchText);
+            this.Panel1.Controls.Add(this.lblSearchText);
+            this.Panel1.Location = new System.Drawing.Point(0, 326);
+            this.Panel1.Name = "Panel1";
+            this.Panel1.Size = new System.Drawing.Size(319, 132);
+            this.Panel1.TabIndex = 31;
+            this.Panel1.Visible = false;
+            // 
+            // RFNCheckBox
+            // 
+            this.RFNCheckBox.AutoSize = true;
+            this.RFNCheckBox.Location = new System.Drawing.Point(100, 103);
+            this.RFNCheckBox.Name = "RFNCheckBox";
+            this.RFNCheckBox.Size = new System.Drawing.Size(116, 17);
+            this.RFNCheckBox.TabIndex = 28;
+            this.RFNCheckBox.Text = "Replace file name";
+            this.toolTip1.SetToolTip(this.RFNCheckBox, "This option is useful if you want to replace the file name of your entry.\r\n\r\nWhen" +
+        " doing so, make sure to copy the entire title to not lose anything.");
+            this.RFNCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // FindPanelClose
+            // 
+            this.FindPanelClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.FindPanelClose.FlatAppearance.BorderSize = 0;
+            this.FindPanelClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.FindPanelClose.Image = global::SecuJournal.Properties.Resources.WinClose;
+            this.FindPanelClose.Location = new System.Drawing.Point(296, 3);
+            this.FindPanelClose.Name = "FindPanelClose";
+            this.FindPanelClose.Size = new System.Drawing.Size(20, 20);
+            this.FindPanelClose.TabIndex = 27;
+            this.toolTip1.SetToolTip(this.FindPanelClose, "Close");
+            this.FindPanelClose.UseVisualStyleBackColor = true;
+            // 
+            // MCCheckBox
+            // 
+            this.MCCheckBox.AutoSize = true;
+            this.MCCheckBox.Location = new System.Drawing.Point(12, 103);
+            this.MCCheckBox.Name = "MCCheckBox";
+            this.MCCheckBox.Size = new System.Drawing.Size(83, 17);
+            this.MCCheckBox.TabIndex = 26;
+            this.MCCheckBox.Text = "Match case";
+            this.MCCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // btnReplace
+            // 
+            this.btnReplace.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnReplace.Location = new System.Drawing.Point(230, 68);
+            this.btnReplace.Name = "btnReplace";
+            this.btnReplace.Size = new System.Drawing.Size(75, 23);
+            this.btnReplace.TabIndex = 25;
+            this.btnReplace.Text = "Replace";
+            this.btnReplace.UseVisualStyleBackColor = true;
+            // 
+            // txtReplacementText
+            // 
+            this.txtReplacementText.Location = new System.Drawing.Point(12, 68);
+            this.txtReplacementText.Name = "txtReplacementText";
+            this.txtReplacementText.Size = new System.Drawing.Size(212, 22);
+            this.txtReplacementText.TabIndex = 23;
+            // 
+            // lblReplacementText
+            // 
+            this.lblReplacementText.AutoSize = true;
+            this.lblReplacementText.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblReplacementText.Location = new System.Drawing.Point(9, 51);
+            this.lblReplacementText.Name = "lblReplacementText";
+            this.lblReplacementText.Size = new System.Drawing.Size(98, 13);
+            this.lblReplacementText.TabIndex = 22;
+            this.lblReplacementText.Text = "Replacement Text:";
+            // 
+            // btnFind
+            // 
+            this.btnFind.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnFind.Location = new System.Drawing.Point(230, 28);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(75, 23);
+            this.btnFind.TabIndex = 24;
+            this.btnFind.Text = "Find";
+            this.btnFind.UseVisualStyleBackColor = true;
+            // 
+            // txtSearchText
+            // 
+            this.txtSearchText.Location = new System.Drawing.Point(12, 28);
+            this.txtSearchText.Name = "txtSearchText";
+            this.txtSearchText.Size = new System.Drawing.Size(212, 22);
+            this.txtSearchText.TabIndex = 21;
+            // 
+            // lblSearchText
+            // 
+            this.lblSearchText.AutoSize = true;
+            this.lblSearchText.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblSearchText.Location = new System.Drawing.Point(9, 12);
+            this.lblSearchText.Name = "lblSearchText";
+            this.lblSearchText.Size = new System.Drawing.Size(66, 13);
+            this.lblSearchText.TabIndex = 20;
+            this.lblSearchText.Text = "Search Text:";
+            // 
             // sjEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(618, 458);
             this.ControlBox = false;
+            this.Controls.Add(this.Panel1);
             this.Controls.Add(this.Label1);
             this.Controls.Add(this.DateTimePicker1);
             this.Controls.Add(this.MaximiseButton);
@@ -321,6 +439,8 @@
             this.ShowIcon = false;
             this.rightClickMenu.ResumeLayout(false);
             this.renameMenu.ResumeLayout(false);
+            this.Panel1.ResumeLayout(false);
+            this.Panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -357,5 +477,15 @@
         internal System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem5;
         internal System.Windows.Forms.ToolStripSeparator ToolStripSeparator6;
         internal System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem6;
+        internal System.Windows.Forms.Panel Panel1;
+        internal System.Windows.Forms.CheckBox RFNCheckBox;
+        internal System.Windows.Forms.Button FindPanelClose;
+        internal System.Windows.Forms.CheckBox MCCheckBox;
+        internal System.Windows.Forms.Button btnReplace;
+        internal System.Windows.Forms.TextBox txtReplacementText;
+        internal System.Windows.Forms.Label lblReplacementText;
+        internal System.Windows.Forms.Button btnFind;
+        internal System.Windows.Forms.TextBox txtSearchText;
+        internal System.Windows.Forms.Label lblSearchText;
     }
 }

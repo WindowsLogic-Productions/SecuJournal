@@ -22,17 +22,45 @@ namespace SecuJournal
 
         private void sjMain_Load(object sender, System.EventArgs e)
         {
+            if (Properties.Settings.Default.OTFEncryption == true)
+            {
+                //sjPassword sjp = new sjPassword;
+                //sjp.showdialog();
+            }
+            else
+            {
+
+            }
+
+
+            string root = "C:\\SecuJournal";
+            if (!Directory.Exists(root))
+            {
+                Directory.CreateDirectory(root);
+            }
 
         }
 
         private void NewJournalEntryToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-
+            sjName sjn = new sjName();
+            sjn.ShowDialog();
         }
 
         private void OpenJournalEntryToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-
+            openFileDialog1.InitialDirectory = Properties.Settings.Default.DefaultSaveDirectory;
+            openFileDialog1.Title = "Open Journal Entry";
+            openFileDialog1.Filter = "SecuJournal Entry|*.sje";
+            openFileDialog1.FileName = "";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                sjEntry openEntry = new sjEntry();
+                openEntry.MdiParent = this;
+                openEntry.Show();
+                openEntry.RichTextBox1.LoadFile(openFileDialog1.FileName);
+                openEntry.TextBox1.Text = System.IO.Path.GetFileNameWithoutExtension(openFileDialog1.FileName);
+            }
         }
 
         private void ExitToolStripMenuItem_Click(object sender, System.EventArgs e)
