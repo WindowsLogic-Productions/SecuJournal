@@ -24,14 +24,13 @@ namespace SecuJournal
         {
             if (Properties.Settings.Default.OTFEncryption == true)
             {
-                //sjPassword sjp = new sjPassword;
-                //sjp.showdialog();
+                sjPassword sjp = new sjPassword;
+                sjp.ShowDialog();
             }
             else
             {
 
             }
-
 
             string root = "C:\\SecuJournal";
             if (!Directory.Exists(root))

@@ -70,6 +70,12 @@
     <Compile Include="sjName.Designer.cs">
       <DependentUpon>sjName.cs</DependentUpon>
     </Compile>
+    <Compile Include="sjPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sjPassword.Designer.cs">
+      <DependentUpon>sjPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="sjSettings.cs">
       <SubType>Form</SubType>
     </Compile>
