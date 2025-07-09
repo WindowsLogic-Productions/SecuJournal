@@ -70,12 +70,27 @@ namespace SecuJournal
 
         private void BackupJournalEntriesToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-
+            FolderBrowserDialog FolderDialogue = new FolderBrowserDialog();
+            FolderDialogue.ShowNewFolderButton = true;
+            string sourcePath = Properties.Settings.Default.DefaultSaveDirectory;
+            string destinationPath;
+            if (FolderDialogue.ShowDialog() == DialogResult.OK)
+            {
+                destinationPath = FolderDialogue.SelectedPath;
+                System.Environment.SpecialFolder root = FolderDialogue.RootFolder;
+                string newDirectory = System.IO.Path.Combine(destinationPath, Path.GetFileName(Path.GetDirectoryName(sourcePath)));
+                if (!Directory.Exists(newDirectory))
+                {
+                    Directory.CreateDirectory(newDirectory);
+                }
+                Microsoft.VisualBasic.FileIO.FileSystem.CopyDirectory(sourcePath, newDirectory);
+            }
         }
 
         private void SettingsToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-
+            sjSettings sjs = new sjSettings();
+            sjs.ShowDialog();
         }
     }
 }

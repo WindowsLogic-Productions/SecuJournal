@@ -36,6 +36,7 @@
     <ApplicationIcon>ssAppointments.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -68,6 +69,12 @@
     </Compile>
     <Compile Include="sjName.Designer.cs">
       <DependentUpon>sjName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sjSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sjSettings.Designer.cs">
+      <DependentUpon>sjSettings.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="sjEntry.resx">
       <DependentUpon>sjEntry.cs</DependentUpon>
