@@ -37,6 +37,8 @@
             this.MinimiseButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.RFNCheckBox = new System.Windows.Forms.CheckBox();
+            this.FindPanelClose = new System.Windows.Forms.Button();
             this.rightClickMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.UndoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.RedoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,8 +61,6 @@
             this.ToolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.ToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.Panel1 = new System.Windows.Forms.Panel();
-            this.RFNCheckBox = new System.Windows.Forms.CheckBox();
-            this.FindPanelClose = new System.Windows.Forms.Button();
             this.MCCheckBox = new System.Windows.Forms.CheckBox();
             this.btnReplace = new System.Windows.Forms.Button();
             this.txtReplacementText = new System.Windows.Forms.TextBox();
@@ -68,6 +68,9 @@
             this.btnFind = new System.Windows.Forms.Button();
             this.txtSearchText = new System.Windows.Forms.TextBox();
             this.lblSearchText = new System.Windows.Forms.Label();
+            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rightClickMenu.SuspendLayout();
             this.renameMenu.SuspendLayout();
             this.Panel1.SuspendLayout();
@@ -155,9 +158,37 @@
             this.toolTip1.SetToolTip(this.CloseButton, "Close");
             this.CloseButton.UseVisualStyleBackColor = true;
             // 
+            // RFNCheckBox
+            // 
+            this.RFNCheckBox.AutoSize = true;
+            this.RFNCheckBox.Location = new System.Drawing.Point(100, 103);
+            this.RFNCheckBox.Name = "RFNCheckBox";
+            this.RFNCheckBox.Size = new System.Drawing.Size(116, 17);
+            this.RFNCheckBox.TabIndex = 28;
+            this.RFNCheckBox.Text = "Replace file name";
+            this.toolTip1.SetToolTip(this.RFNCheckBox, "This option is useful if you want to replace the file name of your entry.\r\n\r\nWhen" +
+        " doing so, make sure to copy the entire title to not lose anything.");
+            this.RFNCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // FindPanelClose
+            // 
+            this.FindPanelClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.FindPanelClose.FlatAppearance.BorderSize = 0;
+            this.FindPanelClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.FindPanelClose.Image = global::SecuJournal.Properties.Resources.WinClose;
+            this.FindPanelClose.Location = new System.Drawing.Point(296, 3);
+            this.FindPanelClose.Name = "FindPanelClose";
+            this.FindPanelClose.Size = new System.Drawing.Size(20, 20);
+            this.FindPanelClose.TabIndex = 27;
+            this.toolTip1.SetToolTip(this.FindPanelClose, "Close");
+            this.FindPanelClose.UseVisualStyleBackColor = true;
+            // 
             // rightClickMenu
             // 
             this.rightClickMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.printToolStripMenuItem,
+            this.findToolStripMenuItem,
+            this.toolStripSeparator1,
             this.UndoToolStripMenuItem1,
             this.RedoToolStripMenuItem1,
             this.ToolStripSeparator12,
@@ -174,7 +205,7 @@
             this.DecryptTextToolStripMenuItem});
             this.rightClickMenu.Name = "ContextMenuStrip1";
             this.rightClickMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.rightClickMenu.Size = new System.Drawing.Size(263, 248);
+            this.rightClickMenu.Size = new System.Drawing.Size(263, 320);
             // 
             // UndoToolStripMenuItem1
             // 
@@ -182,6 +213,7 @@
             this.UndoToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
             this.UndoToolStripMenuItem1.Size = new System.Drawing.Size(262, 22);
             this.UndoToolStripMenuItem1.Text = "Undo";
+            this.UndoToolStripMenuItem1.Click += new System.EventHandler(this.UndoToolStripMenuItem1_Click);
             // 
             // RedoToolStripMenuItem1
             // 
@@ -189,6 +221,7 @@
             this.RedoToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
             this.RedoToolStripMenuItem1.Size = new System.Drawing.Size(262, 22);
             this.RedoToolStripMenuItem1.Text = "Redo";
+            this.RedoToolStripMenuItem1.Click += new System.EventHandler(this.RedoToolStripMenuItem1_Click);
             // 
             // ToolStripSeparator12
             // 
@@ -201,6 +234,7 @@
             this.CutToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
             this.CutToolStripMenuItem1.Size = new System.Drawing.Size(262, 22);
             this.CutToolStripMenuItem1.Text = "Cut";
+            this.CutToolStripMenuItem1.Click += new System.EventHandler(this.CutToolStripMenuItem1_Click);
             // 
             // CopyToolStripMenuItem1
             // 
@@ -208,6 +242,7 @@
             this.CopyToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
             this.CopyToolStripMenuItem1.Size = new System.Drawing.Size(262, 22);
             this.CopyToolStripMenuItem1.Text = "Copy";
+            this.CopyToolStripMenuItem1.Click += new System.EventHandler(this.CopyToolStripMenuItem1_Click);
             // 
             // PasteToolStripMenuItem1
             // 
@@ -215,6 +250,7 @@
             this.PasteToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
             this.PasteToolStripMenuItem1.Size = new System.Drawing.Size(262, 22);
             this.PasteToolStripMenuItem1.Text = "Paste";
+            this.PasteToolStripMenuItem1.Click += new System.EventHandler(this.PasteToolStripMenuItem1_Click);
             // 
             // ToolStripSeparator11
             // 
@@ -227,6 +263,7 @@
             this.SelectAllToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
             this.SelectAllToolStripMenuItem1.Size = new System.Drawing.Size(262, 22);
             this.SelectAllToolStripMenuItem1.Text = "Select all";
+            this.SelectAllToolStripMenuItem1.Click += new System.EventHandler(this.SelectAllToolStripMenuItem1_Click);
             // 
             // ToolStripSeparator13
             // 
@@ -240,6 +277,7 @@
             | System.Windows.Forms.Keys.P)));
             this.InsertPictureToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.InsertPictureToolStripMenuItem.Text = "Insert picture...";
+            this.InsertPictureToolStripMenuItem.Click += new System.EventHandler(this.InsertPictureToolStripMenuItem_Click);
             // 
             // InsertDateAndTimeToolStripMenuItem
             // 
@@ -248,6 +286,7 @@
             | System.Windows.Forms.Keys.D)));
             this.InsertDateAndTimeToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.InsertDateAndTimeToolStripMenuItem.Text = "Insert date and time...";
+            this.InsertDateAndTimeToolStripMenuItem.Click += new System.EventHandler(this.InsertDateAndTimeToolStripMenuItem_Click);
             // 
             // ToolStripSeparator14
             // 
@@ -260,6 +299,7 @@
             this.EncryptTextToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.E)));
             this.EncryptTextToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.EncryptTextToolStripMenuItem.Text = "Encrypt text";
+            this.EncryptTextToolStripMenuItem.Click += new System.EventHandler(this.EncryptTextToolStripMenuItem_Click);
             // 
             // DecryptTextToolStripMenuItem
             // 
@@ -267,6 +307,7 @@
             this.DecryptTextToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.D)));
             this.DecryptTextToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.DecryptTextToolStripMenuItem.Text = "Decrypt text";
+            this.DecryptTextToolStripMenuItem.Click += new System.EventHandler(this.DecryptTextToolStripMenuItem_Click);
             // 
             // renameMenu
             // 
@@ -329,31 +370,9 @@
             this.Panel1.Size = new System.Drawing.Size(319, 132);
             this.Panel1.TabIndex = 31;
             this.Panel1.Visible = false;
-            // 
-            // RFNCheckBox
-            // 
-            this.RFNCheckBox.AutoSize = true;
-            this.RFNCheckBox.Location = new System.Drawing.Point(100, 103);
-            this.RFNCheckBox.Name = "RFNCheckBox";
-            this.RFNCheckBox.Size = new System.Drawing.Size(116, 17);
-            this.RFNCheckBox.TabIndex = 28;
-            this.RFNCheckBox.Text = "Replace file name";
-            this.toolTip1.SetToolTip(this.RFNCheckBox, "This option is useful if you want to replace the file name of your entry.\r\n\r\nWhen" +
-        " doing so, make sure to copy the entire title to not lose anything.");
-            this.RFNCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // FindPanelClose
-            // 
-            this.FindPanelClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.FindPanelClose.FlatAppearance.BorderSize = 0;
-            this.FindPanelClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.FindPanelClose.Image = global::SecuJournal.Properties.Resources.WinClose;
-            this.FindPanelClose.Location = new System.Drawing.Point(296, 3);
-            this.FindPanelClose.Name = "FindPanelClose";
-            this.FindPanelClose.Size = new System.Drawing.Size(20, 20);
-            this.FindPanelClose.TabIndex = 27;
-            this.toolTip1.SetToolTip(this.FindPanelClose, "Close");
-            this.FindPanelClose.UseVisualStyleBackColor = true;
+            this.Panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseDown);
+            this.Panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseMove);
+            this.Panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseUp);
             // 
             // MCCheckBox
             // 
@@ -419,6 +438,27 @@
             this.lblSearchText.TabIndex = 20;
             this.lblSearchText.Text = "Search Text:";
             // 
+            // printToolStripMenuItem
+            // 
+            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
+            this.printToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
+            this.printToolStripMenuItem.Text = "Print...";
+            this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(259, 6);
+            // 
+            // findToolStripMenuItem
+            // 
+            this.findToolStripMenuItem.Name = "findToolStripMenuItem";
+            this.findToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.findToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
+            this.findToolStripMenuItem.Text = "Find && Replace...";
+            this.findToolStripMenuItem.Click += new System.EventHandler(this.findToolStripMenuItem_Click);
+            // 
             // sjEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -437,6 +477,10 @@
             this.MinimumSize = new System.Drawing.Size(640, 480);
             this.Name = "sjEntry";
             this.ShowIcon = false;
+            this.Load += new System.EventHandler(this.sjEntry_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.sjEntry_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.sjEntry_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.sjEntry_MouseUp);
             this.rightClickMenu.ResumeLayout(false);
             this.renameMenu.ResumeLayout(false);
             this.Panel1.ResumeLayout(false);
@@ -487,5 +531,8 @@
         internal System.Windows.Forms.Button btnFind;
         internal System.Windows.Forms.TextBox txtSearchText;
         internal System.Windows.Forms.Label lblSearchText;
+        private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem findToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }

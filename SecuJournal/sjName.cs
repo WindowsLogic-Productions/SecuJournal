@@ -19,9 +19,10 @@ namespace SecuJournal
 
         private void OKButton_Click(object sender, EventArgs e)
         {
-            sjEntry sje = new sjEntry();
+            var mdiParent = Application.OpenForms.OfType<sjMain>().FirstOrDefault();
             sjMain sjm = new sjMain();
-            sje.MdiParent = sjm;
+            sjEntry sje = new sjEntry();
+            sje.MdiParent = mdiParent;
             sje.Show();
 
             if (TextBox1.Text == "")
@@ -42,11 +43,12 @@ namespace SecuJournal
             {
                 sje.RichTextBox1.Text = sje.TextBox1.Text + " - " + sje.DateTimePicker1.Text;
             }
+            this.Close();
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            this.Close()
+            this.Close();
         }
     }
 }

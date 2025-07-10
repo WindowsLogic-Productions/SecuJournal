@@ -1,11 +1,11 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.ComponentModel;
-//using System.Data;
-//using System.Drawing;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Security.Cryptography;
@@ -24,7 +24,7 @@ namespace SecuJournal
         {
             if (Properties.Settings.Default.OTFEncryption == true)
             {
-                sjPassword sjp = new sjPassword;
+                sjPassword sjp = new sjPassword();
                 sjp.ShowDialog();
             }
             else
@@ -42,7 +42,10 @@ namespace SecuJournal
 
         private void NewJournalEntryToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
+            sjEntry sje = new sjEntry();
             sjName sjn = new sjName();
+            sje.MdiParent = this.ParentForm;
+            //sje.Show();
             sjn.ShowDialog();
         }
 

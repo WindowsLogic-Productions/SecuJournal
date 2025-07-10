@@ -51,7 +51,7 @@ namespace SecuJournal
         private void sjSettings_FormClosing(object sender, FormClosingEventArgs e)
         {
             // Need to use a new sjEntry for sjEntry properties because sjEntry = sjEntry all the time.
-            sjEntry sje = new sjEntry;
+            sjEntry sje = new sjEntry();
 
             // Save all user settings.
             if (OTFEPassword.Text == "")
@@ -70,7 +70,7 @@ namespace SecuJournal
 
         private void DSLBrowseButton_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog folderDialogue = new FolderBrowserDialog;
+            FolderBrowserDialog folderDialogue = new FolderBrowserDialog();
             folderDialogue.ShowNewFolderButton = true;
             if (folderDialogue.ShowDialog() == DialogResult.OK)
             {
