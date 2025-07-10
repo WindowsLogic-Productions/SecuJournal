@@ -16,5 +16,37 @@ namespace SecuJournal
         {
             InitializeComponent();
         }
+
+        private void OKButton_Click(object sender, EventArgs e)
+        {
+            sjEntry sje = new sjEntry();
+            sjMain sjm = new sjMain();
+            sje.MdiParent = sjm;
+            sje.Show();
+
+            if (TextBox1.Text == "")
+            {
+                sje.TextBox1.Text = "New journal entry - " + DateTime.Now.ToString("dd-MM-yyyy");
+            }
+            else
+            {
+                sje.TextBox1.Text = TextBox1.Text;
+                sje.DateTimePicker1.Text = DateTimePicker1.Text;
+            }
+
+            if (Properties.Settings.Default.WriteTitle == true)
+            {
+
+            }
+            else
+            {
+                sje.RichTextBox1.Text = sje.TextBox1.Text + " - " + sje.DateTimePicker1.Text;
+            }
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close()
+        }
     }
 }
