@@ -62,6 +62,12 @@
     <Compile Include="sjEntry.Designer.cs">
       <DependentUpon>sjEntry.cs</DependentUpon>
     </Compile>
+    <Compile Include="sjImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sjImage.Designer.cs">
+      <DependentUpon>sjImage.cs</DependentUpon>
+    </Compile>
     <Compile Include="sjMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="sjEntry.resx">
       <DependentUpon>sjEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sjImage.resx">
+      <DependentUpon>sjImage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sjMain.resx">
       <DependentUpon>sjMain.cs</DependentUpon>
