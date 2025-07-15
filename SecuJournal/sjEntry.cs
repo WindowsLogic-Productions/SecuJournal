@@ -1,14 +1,15 @@
 ﻿using System;
-//using System.Collections.Generic;
-//using System.ComponentModel;
-//using System.Data;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
-//using System.Linq;
+using System.Linq;
 using System.Text;
-//using System.Threading.Tasks;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
 using VPKSoft.WinFormsRtfPrint;
+using System.IO;
 
 namespace SecuJournal
 {
@@ -89,7 +90,7 @@ namespace SecuJournal
         }
 
         #endregion
-
+        #region Load Settings
         private void sjEntry_Load(object sender, EventArgs e)
         {
             // Load  and create encryption key.
@@ -102,7 +103,8 @@ namespace SecuJournal
                 decryptor = symmetricKey.CreateDecryptor(KEY_128, IV_128);
             }
         }
-
+        #endregion
+        #region Right-click Menu
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (RichTextBox1.Text == "")
@@ -153,22 +155,63 @@ namespace SecuJournal
 
         private void InsertPictureToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            OpenFileDialog openImage = new OpenFileDialog();
+            openImage.Filter = "Image Files|*.jpg;*.jpeg;*.gif;*.png;*.tiff;*.bmp";
+            if (openImage.ShowDialog() == DialogResult.OK)
+            {
+                sjImage sji = new sjImage();
+                sji.ShowDialog();
+                Image img = Image.FromFile(openImage.FileName);
+                Bitmap bmp = new Bitmap(Properties.Settings.Default.SetImgWidth, Properties.Settings.Default.SetImgHeight);
+                Graphics grphcs = Graphics.FromImage(bmp);
+                grphcs.DrawImage(img, new Rectangle(0, 0, bmp.Width, bmp.Height), new Rectangle(0, 0, img.Width, img.Height), GraphicsUnit.Pixel);
+                Clipboard.SetImage(bmp);
+                RichTextBox1.Paste();
+                grphcs.Dispose();
+                bmp.Dispose();
+                img.Dispose();
+            }
         }
 
         private void InsertDateAndTimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            sjDate sjd = new sjDate();
+            sjd.ShowDialog();
         }
 
         private void EncryptTextToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            string sPlainText = this.RichTextBox1.SelectedText;
+            if (!string.IsNullOrEmpty(sPlainText))
+            {
+                MemoryStream memoryStream = new MemoryStream();
+                CryptoStream cryptoStream = new CryptoStream(memoryStream, this.encryptor, CryptoStreamMode.Write);
+                cryptoStream.Write(this.enc.GetBytes(sPlainText), 0, sPlainText.Length);
+                cryptoStream.FlushFinalBlock();
+                this.RichTextBox1.SelectedText = Convert.ToBase64String(memoryStream.ToArray());
+                memoryStream.Close();
+                cryptoStream.Close();
+            }
         }
 
         private void DecryptTextToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                byte[] cypherTextBytes = Convert.FromBase64String(this.RichTextBox1.Text);
+                MemoryStream memoryStream = new MemoryStream(cypherTextBytes);
+                CryptoStream cryptoStream = new CryptoStream(memoryStream, this.decryptor, CryptoStreamMode.Read);
+                byte[] plainTextBytes = new byte[cypherTextBytes.Length];
+                int decryptedByteCount = cryptoStream.Read(plainTextBytes, 0, plainTextBytes.Length);
+                memoryStream.Close();
+                cryptoStream.Close();
+                this.RichTextBox1.Text = this.enc.GetString(plainTextBytes, 0, decryptedByteCount);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Text is already decrypted.");
+            }
         }
+        #endregion
     }
 }
