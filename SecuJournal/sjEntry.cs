@@ -90,6 +90,29 @@ namespace SecuJournal
         }
 
         #endregion
+        #region Window Controls
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void MaximiseButton_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized == true)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+        }
+
+        private void MinimiseButton_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+        #endregion
         #region Load Settings
         private void sjEntry_Load(object sender, EventArgs e)
         {
@@ -236,5 +259,6 @@ namespace SecuJournal
         }
         #endregion
 
+        
     }
 }

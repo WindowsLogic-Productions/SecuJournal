@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.RichTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.Label1 = new System.Windows.Forms.Label();
+            this.lblGrip = new System.Windows.Forms.Label();
             this.DateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.TextBox1 = new System.Windows.Forms.TextBox();
             this.renameMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -81,28 +81,28 @@
             this.RichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RichTextBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.RichTextBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RichTextBox1.Location = new System.Drawing.Point(0, 33);
+            this.RichTextBox1.Location = new System.Drawing.Point(0, 27);
             this.RichTextBox1.Margin = new System.Windows.Forms.Padding(2);
             this.RichTextBox1.Name = "RichTextBox1";
-            this.RichTextBox1.Size = new System.Drawing.Size(624, 431);
+            this.RichTextBox1.Size = new System.Drawing.Size(624, 437);
             this.RichTextBox1.TabIndex = 2;
             this.RichTextBox1.Text = "";
             // 
-            // Label1
+            // lblGrip
             // 
-            this.Label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Label1.AutoSize = true;
-            this.Label1.Location = new System.Drawing.Point(410, 3);
-            this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(15, 13);
-            this.Label1.TabIndex = 28;
-            this.Label1.Text = "=";
-            this.toolTip1.SetToolTip(this.Label1, "Drag space");
+            this.lblGrip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblGrip.AutoSize = true;
+            this.lblGrip.Location = new System.Drawing.Point(412, 3);
+            this.lblGrip.Name = "lblGrip";
+            this.lblGrip.Size = new System.Drawing.Size(15, 13);
+            this.lblGrip.TabIndex = 28;
+            this.lblGrip.Text = "=";
+            this.toolTip1.SetToolTip(this.lblGrip, "Drag space");
             // 
             // DateTimePicker1
             // 
             this.DateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.DateTimePicker1.Location = new System.Drawing.Point(427, 0);
+            this.DateTimePicker1.Location = new System.Drawing.Point(434, 0);
             this.DateTimePicker1.Name = "DateTimePicker1";
             this.DateTimePicker1.Size = new System.Drawing.Size(124, 22);
             this.DateTimePicker1.TabIndex = 27;
@@ -130,13 +130,13 @@
             this.ToolStripMenuItem6});
             this.renameMenu.Name = "ContextMenuStrip1";
             this.renameMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.renameMenu.Size = new System.Drawing.Size(181, 120);
+            this.renameMenu.Size = new System.Drawing.Size(163, 98);
             // 
             // ToolStripMenuItem3
             // 
             this.ToolStripMenuItem3.Name = "ToolStripMenuItem3";
             this.ToolStripMenuItem3.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.ToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem3.Size = new System.Drawing.Size(162, 22);
             this.ToolStripMenuItem3.Text = "Cut";
             this.ToolStripMenuItem3.Click += new System.EventHandler(this.ToolStripMenuItem3_Click);
             // 
@@ -144,7 +144,7 @@
             // 
             this.ToolStripMenuItem4.Name = "ToolStripMenuItem4";
             this.ToolStripMenuItem4.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.ToolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem4.Size = new System.Drawing.Size(162, 22);
             this.ToolStripMenuItem4.Text = "Copy";
             this.ToolStripMenuItem4.Click += new System.EventHandler(this.ToolStripMenuItem4_Click);
             // 
@@ -152,20 +152,20 @@
             // 
             this.ToolStripMenuItem5.Name = "ToolStripMenuItem5";
             this.ToolStripMenuItem5.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.ToolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem5.Size = new System.Drawing.Size(162, 22);
             this.ToolStripMenuItem5.Text = "Paste";
             this.ToolStripMenuItem5.Click += new System.EventHandler(this.ToolStripMenuItem5_Click);
             // 
             // ToolStripSeparator6
             // 
             this.ToolStripSeparator6.Name = "ToolStripSeparator6";
-            this.ToolStripSeparator6.Size = new System.Drawing.Size(177, 6);
+            this.ToolStripSeparator6.Size = new System.Drawing.Size(159, 6);
             // 
             // ToolStripMenuItem6
             // 
             this.ToolStripMenuItem6.Name = "ToolStripMenuItem6";
             this.ToolStripMenuItem6.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.ToolStripMenuItem6.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem6.Size = new System.Drawing.Size(162, 22);
             this.ToolStripMenuItem6.Text = "Select all";
             this.ToolStripMenuItem6.Click += new System.EventHandler(this.ToolStripMenuItem6_Click);
             // 
@@ -175,12 +175,13 @@
             this.MaximiseButton.FlatAppearance.BorderSize = 0;
             this.MaximiseButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.MaximiseButton.Image = global::SecuJournal.Properties.Resources.WinMaximise;
-            this.MaximiseButton.Location = new System.Drawing.Point(577, 0);
+            this.MaximiseButton.Location = new System.Drawing.Point(583, 1);
             this.MaximiseButton.Name = "MaximiseButton";
             this.MaximiseButton.Size = new System.Drawing.Size(20, 20);
             this.MaximiseButton.TabIndex = 26;
             this.toolTip1.SetToolTip(this.MaximiseButton, "Maximise");
             this.MaximiseButton.UseVisualStyleBackColor = true;
+            this.MaximiseButton.Click += new System.EventHandler(this.MaximiseButton_Click);
             // 
             // MinimiseButton
             // 
@@ -188,12 +189,13 @@
             this.MinimiseButton.FlatAppearance.BorderSize = 0;
             this.MinimiseButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.MinimiseButton.Image = global::SecuJournal.Properties.Resources.WinMinimise;
-            this.MinimiseButton.Location = new System.Drawing.Point(556, 0);
+            this.MinimiseButton.Location = new System.Drawing.Point(562, 1);
             this.MinimiseButton.Name = "MinimiseButton";
             this.MinimiseButton.Size = new System.Drawing.Size(20, 20);
             this.MinimiseButton.TabIndex = 24;
             this.toolTip1.SetToolTip(this.MinimiseButton, "Minimise");
             this.MinimiseButton.UseVisualStyleBackColor = true;
+            this.MinimiseButton.Click += new System.EventHandler(this.MinimiseButton_Click);
             // 
             // CloseButton
             // 
@@ -201,12 +203,13 @@
             this.CloseButton.FlatAppearance.BorderSize = 0;
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.CloseButton.Image = global::SecuJournal.Properties.Resources.WinClose;
-            this.CloseButton.Location = new System.Drawing.Point(598, 0);
+            this.CloseButton.Location = new System.Drawing.Point(604, 1);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(20, 20);
             this.CloseButton.TabIndex = 23;
             this.toolTip1.SetToolTip(this.CloseButton, "Close");
             this.CloseButton.UseVisualStyleBackColor = true;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // RFNCheckBox
             // 
@@ -471,7 +474,7 @@
             this.ClientSize = new System.Drawing.Size(624, 464);
             this.ControlBox = false;
             this.Controls.Add(this.Panel1);
-            this.Controls.Add(this.Label1);
+            this.Controls.Add(this.lblGrip);
             this.Controls.Add(this.DateTimePicker1);
             this.Controls.Add(this.MaximiseButton);
             this.Controls.Add(this.TextBox1);
@@ -482,6 +485,7 @@
             this.MinimumSize = new System.Drawing.Size(640, 480);
             this.Name = "sjEntry";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Load += new System.EventHandler(this.sjEntry_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.sjEntry_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.sjEntry_MouseMove);
@@ -498,7 +502,7 @@
         #endregion
 
         internal System.Windows.Forms.RichTextBox RichTextBox1;
-        internal System.Windows.Forms.Label Label1;
+        internal System.Windows.Forms.Label lblGrip;
         internal System.Windows.Forms.DateTimePicker DateTimePicker1;
         internal System.Windows.Forms.Button MaximiseButton;
         internal System.Windows.Forms.TextBox TextBox1;
