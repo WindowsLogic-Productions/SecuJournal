@@ -104,6 +104,27 @@ namespace SecuJournal
             }
         }
         #endregion
+        #region Title Right-click Menu
+        private void ToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            TextBox1.Cut();
+        }
+
+        private void ToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            TextBox1.Copy();
+        }
+
+        private void ToolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            TextBox1.Paste();
+        }
+
+        private void ToolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            TextBox1.SelectAll();
+        }
+        #endregion
         #region Right-click Menu
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -198,7 +219,8 @@ namespace SecuJournal
         {
             try
             {
-                byte[] cypherTextBytes = Convert.FromBase64String(this.RichTextBox1.Text);
+                byte[] cypherTextBytes = Convert.FromBase64String(this.RichTextBox1
+.Text);
                 MemoryStream memoryStream = new MemoryStream(cypherTextBytes);
                 CryptoStream cryptoStream = new CryptoStream(memoryStream, this.decryptor, CryptoStreamMode.Read);
                 byte[] plainTextBytes = new byte[cypherTextBytes.Length];
@@ -213,5 +235,6 @@ namespace SecuJournal
             }
         }
         #endregion
+
     }
 }
