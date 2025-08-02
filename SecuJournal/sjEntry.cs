@@ -88,7 +88,37 @@ namespace SecuJournal
                 this.Cursor = Cursors.Default;
             }
         }
+        #endregion
+        #region Grip Movability
+        public bool GripMove;
+        public Point GripMove_MousePosition;
 
+        private void lblGrip_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                GripMove = true;
+                GripMove_MousePosition = e.Location;
+            }
+        }
+
+        private void lblGrip_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (GripMove)
+            {
+                this.Location = new Point(this.Location.X + (e.Location.X - GripMove_MousePosition.X),
+                                           this.Location.Y + (e.Location.Y - GripMove_MousePosition.Y));
+            }
+        }
+
+        private void lblGrip_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                GripMove = false;
+                this.Cursor = Cursors.Default;
+            }
+        }
         #endregion
         #region Window Controls
         private void CloseButton_Click(object sender, EventArgs e)
@@ -126,6 +156,8 @@ namespace SecuJournal
                 decryptor = symmetricKey.CreateDecryptor(KEY_128, IV_128);
             }
         }
+        #endregion
+        #region Menu
         #endregion
         #region Title Right-click Menu
         private void ToolStripMenuItem3_Click(object sender, EventArgs e)
