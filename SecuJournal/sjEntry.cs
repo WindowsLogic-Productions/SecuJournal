@@ -15,6 +15,7 @@ namespace SecuJournal
 {
     public partial class sjEntry : Form
     {
+        #region Vars
         private System.Text.UTF8Encoding enc;
         private ICryptoTransform encryptor;
         private ICryptoTransform decryptor;
@@ -27,6 +28,82 @@ namespace SecuJournal
             InitializeComponent();
         }
 
+        void PrintJournal()
+        {
+            if (RichTextBox1.Text == "")
+            {
+                MessageBox.Show("You cannot print a blank document.");
+            }
+            else
+            {
+                RichTextBox1.PrintWithDialog();
+            }
+        }
+
+        void Find()
+        {
+            Panel1.Show();
+            txtSearchText.Text = RichTextBox1.SelectedText;
+        }
+
+        void ToggleStyle(FontStyle styleToToggle = new FontStyle())
+        {
+            // Backup current font style.
+            FontStyle currentStyle = RichTextBox1.SelectionFont.Style;
+
+            // Check font style toggles.
+            if (styleToToggle == FontStyle.Bold)
+            {
+                if (RichTextBox1.SelectionFont.Bold == false)
+                {
+                    currentStyle = FontStyle.Bold;
+                }
+                else
+                {
+                    currentStyle -= FontStyle.Bold;
+                }
+            }
+            else if (styleToToggle == FontStyle.Italic)
+            {
+                if (RichTextBox1.SelectionFont.Italic == false)
+                {
+                    currentStyle = FontStyle.Italic;
+                }
+                else
+                {
+                    currentStyle -= FontStyle.Italic;
+                }
+            }
+
+
+        }
+
+        void InsertPicture()
+        {
+            OpenFileDialog OpenFile = new OpenFileDialog();
+            OpenFile.Filter = "Image Files|*.jpg;*.jpeg;*.gif;*.png;*.tiff;*.bmp";
+            if (OpenFile.ShowDialog() == DialogResult.OK)
+            {
+                sjImage sjImage = new sjImage();
+                sjImage.ShowDialog();
+                Image img = Image.FromFile(OpenFile.FileName);
+                Bitmap bmp = new Bitmap(Properties.Settings.Default.SetImgWidth, Properties.Settings.Default.SetImgHeight);
+                Graphics g = Graphics.FromImage(bmp);
+                g.DrawImage(img, new Rectangle(0, 0, bmp.Width, bmp.Height), new Rectangle(0, 0, img.Width, img.Height), GraphicsUnit.Pixel);
+                Clipboard.SetImage(bmp);
+                RichTextBox1.Paste();
+                g.Dispose();
+                bmp.Dispose();
+                img.Dispose();
+            }
+        }
+
+        void InsertDate()
+        {
+            sjDate sjd = new sjDate();
+            sjd.ShowDialog();
+        }
+        #endregion
         #region Form Movability
         public bool MoveForm;
         public Point MoveForm_MousePosition;
@@ -183,20 +260,12 @@ namespace SecuJournal
         #region Right-click Menu
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (RichTextBox1.Text == "")
-            {
-                MessageBox.Show("You cannot print a blank document.");
-            }
-            else
-            {
-                RichTextBox1.PrintWithDialog();
-            }
+            PrintJournal();
         }
 
         private void findToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Panel1.Show();
-            txtSearchText.Text = RichTextBox1.SelectedText;
+            Find();
         }
 
         private void UndoToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -231,28 +300,12 @@ namespace SecuJournal
 
         private void InsertPictureToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openImage = new OpenFileDialog();
-            openImage.Filter = "Image Files|*.jpg;*.jpeg;*.gif;*.png;*.tiff;*.bmp";
-            if (openImage.ShowDialog() == DialogResult.OK)
-            {
-                sjImage sji = new sjImage();
-                sji.ShowDialog();
-                Image img = Image.FromFile(openImage.FileName);
-                Bitmap bmp = new Bitmap(Properties.Settings.Default.SetImgWidth, Properties.Settings.Default.SetImgHeight);
-                Graphics grphcs = Graphics.FromImage(bmp);
-                grphcs.DrawImage(img, new Rectangle(0, 0, bmp.Width, bmp.Height), new Rectangle(0, 0, img.Width, img.Height), GraphicsUnit.Pixel);
-                Clipboard.SetImage(bmp);
-                RichTextBox1.Paste();
-                grphcs.Dispose();
-                bmp.Dispose();
-                img.Dispose();
-            }
+            InsertPicture();
         }
 
         private void InsertDateAndTimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            sjDate sjd = new sjDate();
-            sjd.ShowDialog();
+            InsertDate();
         }
 
         private void EncryptTextToolStripMenuItem_Click(object sender, EventArgs e)
@@ -274,8 +327,7 @@ namespace SecuJournal
         {
             try
             {
-                byte[] cypherTextBytes = Convert.FromBase64String(this.RichTextBox1
-.Text);
+                byte[] cypherTextBytes = Convert.FromBase64String(this.RichTextBox1.Text);
                 MemoryStream memoryStream = new MemoryStream(cypherTextBytes);
                 CryptoStream cryptoStream = new CryptoStream(memoryStream, this.decryptor, CryptoStreamMode.Read);
                 byte[] plainTextBytes = new byte[cypherTextBytes.Length];
@@ -289,8 +341,112 @@ namespace SecuJournal
                 MessageBox.Show("Text is already decrypted.");
             }
         }
+
         #endregion
 
-        
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            PrintJournal();
+        }
+
+        private void SaveAndCloseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RichTextBox1.SaveFile(Properties.Settings.Default.DefaultSaveDirectory + "\\" + TextBox1.Text + ".sje");
+            this.Close();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Find();
+        }
+
+        private void UndoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RichTextBox1.Undo();
+        }
+
+        private void RedoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RichTextBox1.Redo();
+        }
+
+        private void CutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RichTextBox1.Cut();
+        }
+
+        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RichTextBox1.Copy();
+        }
+
+        private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RichTextBox1.Paste();
+        }
+
+        private void SelectAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RichTextBox1.SelectAll();
+        }
+
+        private void PictureToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InsertPicture();
+        }
+
+        private void DateAndTimeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InsertDate();
+        }
+
+        private void FontToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FontDialog NewFont = new FontDialog();
+            NewFont.ShowDialog();
+            RichTextBox1.SelectionFont = NewFont.Font;
+        }
+
+        private void TextColourToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ColorDialog NewColour = new ColorDialog();
+            NewColour.ShowDialog();
+            RichTextBox1.SelectionColor = NewColour.Color;
+        }
+
+        private void BoldToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToggleStyle(FontStyle.Bold);
+        }
+
+        private void ItalicToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToggleStyle(FontStyle.Italic);
+        }
+
+        private void UnderlineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToggleStyle(FontStyle.Underline);
+        }
+
+        private void StrikethroughToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToggleStyle(FontStyle.Strikeout);
+        }
+
+        private void AlignTextLeftToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RichTextBox1.SelectionAlignment = HorizontalAlignment.Left;
+        }
+
+        private void AlignTextCentreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RichTextBox1.SelectionAlignment = HorizontalAlignment.Center;
+        }
+
+        private void AlignTextRightToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RichTextBox1.SelectionAlignment = HorizontalAlignment.Right;
+        }
     }
 }
