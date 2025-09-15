@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9571FCF0-19C6-422A-B921-F8ADB4381617}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>SecuJournal.My.MyApplication</StartupObject>
+    <RootNamespace>SecuJournal</RootNamespace>
+    <AssemblyName>SecuJournal</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>SecuJournal.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>SecuJournal.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ssAppointments.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VPKSoft.WinFormsRtfPrint, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\VPKSoft.WinFormsRtfPrint.1.0.0.3\lib\net47\VPKSoft.WinFormsRtfPrint.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SJDate.Designer.vb">
+      <DependentUpon>SJDate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SJDate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SJEntry.Designer.vb">
+      <DependentUpon>SJEntry.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SJEntry.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SJImage.Designer.vb">
+      <DependentUpon>SJImage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SJImage.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SJMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SJMain.Designer.vb">
+      <DependentUpon>SJMain.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SJName.Designer.vb">
+      <DependentUpon>SJName.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SJName.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SJPassword.Designer.vb">
+      <DependentUpon>SJPassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SJPassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SJSearch.Designer.vb">
+      <DependentUpon>SJSearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SJSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SJSettings.Designer.vb">
+      <DependentUpon>SJSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SJSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SJDate.resx">
+      <DependentUpon>SJDate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SJEntry.resx">
+      <DependentUpon>SJEntry.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SJImage.resx">
+      <DependentUpon>SJImage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SJMain.resx">
+      <DependentUpon>SJMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SJName.resx">
+      <DependentUpon>SJName.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SJPassword.resx">
+      <DependentUpon>SJPassword.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SJSearch.resx">
+      <DependentUpon>SJSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SJSettings.resx">
+      <DependentUpon>SJSettings.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Resources\WinClose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WinMinimise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cut.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WinMaximise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Copy.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Paste.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Print.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Undo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Redo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Italic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Underline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Strikethrough.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AlignR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AlignL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AlignC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Personalisation.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\History.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Select All.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WinRestore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ssAppointments.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>

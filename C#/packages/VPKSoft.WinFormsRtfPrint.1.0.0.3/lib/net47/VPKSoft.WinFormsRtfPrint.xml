@@ -1,0 +1,242 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VPKSoft.WinFormsRtfPrint</name>
+    </assembly>
+    <members>
+        <member name="T:VPKSoft.WinFormsRtfPrint.RichTextBoxPrintHelper">
+            <summary>
+            A helper class to print the contents of a <see cref="T:System.Windows.Forms.RichTextBox"/> control contents.
+            </summary>
+        </member>
+        <member name="M:VPKSoft.WinFormsRtfPrint.RichTextBoxPrintHelper.Print(System.Windows.Forms.RichTextBox)">
+            <summary>
+            Prints the document.
+            </summary>
+            <param name="richTextBox"></param>
+            <returns><c>true</c> if the document was printed successfully, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:VPKSoft.WinFormsRtfPrint.RichTextBoxPrintHelper.Print(System.Windows.Forms.RichTextBox,System.Boolean,System.Boolean)">
+            <summary>
+            Prints the document optionally displaying a <see cref="T:System.Windows.Forms.PrintDialog"/> and a <see cref="T:System.Windows.Forms.PrintPreviewDialog"/> to the user before printing.
+            </summary>
+            <param name="richTextBox">The <see cref="T:System.Windows.Forms.RichTextBox"/> class instance which contents are to be printed.</param>
+            <param name="showPrintPreview">if set to <c>true</c> a print preview dialog is shown before printing the document.</param>
+            <param name="showPrintDialog">if set to <c>true</c> a <see cref="T:System.Windows.Forms.PrintDialog"/> is shown before printing.</param>
+            <returns><c>true</c> if the user accepted the optional dialogs, no exceptions were thrown and the document was printed successfully, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:VPKSoft.WinFormsRtfPrint.RichTextBoxPrintHelper.Print(System.Windows.Forms.RichTextBox,System.Boolean,System.Boolean,System.Drawing.Icon,System.String)">
+            <summary>
+            Prints the document optionally displaying a <see cref="T:System.Windows.Forms.PrintDialog"/> and a <see cref="T:System.Windows.Forms.PrintPreviewDialog"/> to the user before printing.
+            </summary>
+            <param name="richTextBox">The <see cref="T:System.Windows.Forms.RichTextBox"/> class instance which contents are to be printed.</param>
+            <param name="showPrintPreview">if set to <c>true</c> a print preview dialog is shown before printing the document.</param>
+            <param name="showPrintDialog">if set to <c>true</c> a <see cref="T:System.Windows.Forms.PrintDialog"/> is shown before printing.</param>
+            <param name="icon">A <see cref="T:System.Windows.Forms.Form"/> class instance to get the icon to be used with the <see cref="T:System.Windows.Forms.PrintPreviewDialog"/> dialog.</param>
+            <param name="previewDialogTitle">The title to use with the <see cref="T:System.Windows.Forms.PrintPreviewDialog"/> class instance.</param>
+            <returns><c>true</c> if the user accepted the optional dialogs, no exceptions were thrown and the document was printed successfully, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:VPKSoft.WinFormsRtfPrint.RichTextBoxPrintHelper.PrintPreview(System.Windows.Forms.RichTextBox,System.Drawing.Icon,System.String)">
+            <summary>
+            Only shows the print preview dialog without printing the document.
+            </summary>
+            <param name="richTextBox">The <see cref="T:System.Windows.Forms.RichTextBox"/> class instance which contents are to be previewed.</param>
+            <param name="icon">A <see cref="T:System.Windows.Forms.Form"/> class instance to get the icon to be used with the <see cref="T:System.Windows.Forms.PrintPreviewDialog"/> dialog.</param>
+            <param name="previewDialogTitle">The title to use with the <see cref="T:System.Windows.Forms.PrintPreviewDialog"/> class instance.</param>
+            <returns><c>true</c> if the user accepted the optional dialogs, no exceptions were thrown and the document was printed successfully, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:VPKSoft.WinFormsRtfPrint.RichTextBoxPrintHelper.PrintWithDialog(System.Windows.Forms.RichTextBox)">
+            <summary>
+            Prints the document displaying a <see cref="T:System.Windows.Forms.PrintDialog"/> to the user before printing.
+            </summary>
+            <param name="richTextBox">The <see cref="T:System.Windows.Forms.RichTextBox"/> class instance which contents are to be printed.</param>
+            <returns><c>true</c> if the user accepted the optional dialogs, no exceptions were thrown and the document was printed successfully, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:VPKSoft.WinFormsRtfPrint.RichTextBoxPrintHelper.PrintWithPreview(System.Windows.Forms.RichTextBox,System.Drawing.Icon,System.String)">
+            <summary>
+            Prints the document displaying a <see cref="T:System.Windows.Forms.PrintPreviewDialog"/> to the user before printing.
+            </summary>
+            <param name="richTextBox">The <see cref="T:System.Windows.Forms.RichTextBox"/> class instance which contents are to be printed.</param>
+            <param name="icon">A <see cref="T:System.Windows.Forms.Form"/> class instance to get the icon to be used with the <see cref="T:System.Windows.Forms.PrintPreviewDialog"/> dialog.</param>
+            <param name="previewDialogTitle">The title to use with the <see cref="T:System.Windows.Forms.PrintPreviewDialog"/> class instance.</param>
+            <returns><c>true</c> if the user accepted the optional dialogs, no exceptions were thrown and the document was printed successfully, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="T:VPKSoft.WinFormsRtfPrint.RtfPrint">
+            <summary>
+            A class for printing <see cref="P:VPKSoft.WinFormsRtfPrint.RtfPrint.RichTextBox"/> control contents.
+            </summary>
+        </member>
+        <member name="P:VPKSoft.WinFormsRtfPrint.RtfPrint.RichTextBox">
+            <summary>
+            Gets or sets the <see cref="P:VPKSoft.WinFormsRtfPrint.RtfPrint.RichTextBox"/> control which contents are to be printed. The value is reset to <c>null</c> after printing.
+            </summary>
+        </member>
+        <member name="P:VPKSoft.WinFormsRtfPrint.RtfPrint.Owner">
+            <summary>
+            Any object that implements <see cref="T:System.Windows.Forms.IWin32Window" /> that represents the top-level window that will own the modal dialog boxes used by the library.
+            </summary>
+        </member>
+        <member name="M:VPKSoft.WinFormsRtfPrint.RtfPrint.PrintRichTextContents">
+            <summary>
+            Prints the contents of the <see cref="P:VPKSoft.WinFormsRtfPrint.RtfPrint.RichTextBox"/> instance.
+            </summary>
+            <returns><c>true</c> if no exceptions were thrown and the document was printed successfully, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:VPKSoft.WinFormsRtfPrint.RtfPrint.PrintRichTextContents(System.Windows.Forms.IWin32Window,System.Boolean,System.Boolean)">
+            <summary>
+            Prints the contents of the <see cref="P:VPKSoft.WinFormsRtfPrint.RtfPrint.RichTextBox"/> instance.
+            </summary>
+            <param name="owner">Any object that implements <see cref="T:System.Windows.Forms.IWin32Window" /> that represents the top-level window that will own the modal dialog box.</param>
+            <param name="showPrintPreview">if set to <c>true</c> a print preview dialog is shown before printing the document.</param>
+            <param name="showPrintDialog">if set to <c>true</c> a <see cref="T:System.Windows.Forms.PrintDialog"/> is shown before printing.</param>
+            <returns><c>true</c> if the user accepted the optional dialogs, no exceptions were thrown and the document was printed successfully, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:VPKSoft.WinFormsRtfPrint.RtfPrint.PrintRichTextContents(System.Boolean,System.Boolean)">
+            <summary>
+            Prints the contents of the <see cref="P:VPKSoft.WinFormsRtfPrint.RtfPrint.RichTextBox"/> instance.
+            </summary>
+            <param name="showPrintPreview">if set to <c>true</c> a print preview dialog is shown before printing the document.</param>
+            <param name="showPrintDialog">if set to <c>true</c> a <see cref="T:System.Windows.Forms.PrintDialog"/> is shown before printing.</param>
+            <returns><c>true</c> if the user accepted the optional dialogs, no exceptions were thrown and the document was printed successfully, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:VPKSoft.WinFormsRtfPrint.RtfPrint.PrintRichTextContents(System.Windows.Forms.IWin32Window,System.Boolean,System.Boolean,System.Reflection.Assembly,System.String)">
+            <summary>
+            Prints the contents of the <see cref="P:VPKSoft.WinFormsRtfPrint.RtfPrint.RichTextBox"/> instance.
+            </summary>
+            <param name="owner">Any object that implements <see cref="T:System.Windows.Forms.IWin32Window" /> that represents the top-level window that will own the modal dialog box.</param>
+            <param name="showPrintPreview">if set to <c>true</c> a print preview dialog is shown before printing the document.</param>
+            <param name="showPrintDialog">if set to <c>true</c> a <see cref="T:System.Windows.Forms.PrintDialog"/> is shown before printing.</param>
+            <param name="assembly">An assembly to get an icon for the <see cref="T:System.Windows.Forms.PrintPreviewDialog"/> dialog.</param>
+            <param name="previewDialogTitle">The title to use with the <see cref="T:System.Windows.Forms.PrintPreviewDialog"/> class instance.</param>
+            <returns><c>true</c> if the user accepted the optional dialogs, no exceptions were thrown and the document was printed successfully, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:VPKSoft.WinFormsRtfPrint.RtfPrint.PrintRichTextContents(System.Boolean,System.Boolean,System.Reflection.Assembly,System.String)">
+            <summary>
+            Prints the contents of the <see cref="P:VPKSoft.WinFormsRtfPrint.RtfPrint.RichTextBox"/> instance.
+            </summary>
+            <param name="showPrintPreview">if set to <c>true</c> a print preview dialog is shown before printing the document.</param>
+            <param name="showPrintDialog">if set to <c>true</c> a <see cref="T:System.Windows.Forms.PrintDialog"/> is shown before printing.</param>
+            <param name="assembly">An assembly to get an icon for the <see cref="T:System.Windows.Forms.PrintPreviewDialog"/> dialog.</param>
+            <param name="previewDialogTitle">The title to use with the <see cref="T:System.Windows.Forms.PrintPreviewDialog"/> class instance.</param>
+            <returns><c>true</c> if the user accepted the optional dialogs, no exceptions were thrown and the document was printed successfully, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:VPKSoft.WinFormsRtfPrint.RtfPrint.PrintRichTextContents(System.Windows.Forms.IWin32Window,System.Boolean,System.Boolean,System.Windows.Forms.Form,System.String)">
+            <summary>
+            Prints the contents of the <see cref="P:VPKSoft.WinFormsRtfPrint.RtfPrint.RichTextBox"/> instance.
+            </summary>
+            <param name="owner">Any object that implements <see cref="T:System.Windows.Forms.IWin32Window" /> that represents the top-level window that will own the modal dialog box.</param>
+            <param name="showPrintPreview">if set to <c>true</c> a print preview dialog is shown before printing the document.</param>
+            <param name="showPrintDialog">if set to <c>true</c> a <see cref="T:System.Windows.Forms.PrintDialog"/> is shown before printing.</param>
+            <param name="iconForm">A <see cref="T:System.Windows.Forms.Form"/> class instance to get the icon to be used with the <see cref="T:System.Windows.Forms.PrintPreviewDialog"/> dialog.</param>
+            <param name="previewDialogTitle">The title to use with the <see cref="T:System.Windows.Forms.PrintPreviewDialog"/> class instance.</param>
+            <returns><c>true</c> if the user accepted the optional dialogs, no exceptions were thrown and the document was printed successfully, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:VPKSoft.WinFormsRtfPrint.RtfPrint.PrintRichTextContents(System.Boolean,System.Boolean,System.Windows.Forms.Form,System.String)">
+            <summary>
+            Prints the contents of the <see cref="P:VPKSoft.WinFormsRtfPrint.RtfPrint.RichTextBox"/> instance.
+            </summary>
+            <param name="showPrintPreview">if set to <c>true</c> a print preview dialog is shown before printing the document.</param>
+            <param name="showPrintDialog">if set to <c>true</c> a <see cref="T:System.Windows.Forms.PrintDialog"/> is shown before printing.</param>
+            <param name="iconForm">A <see cref="T:System.Windows.Forms.Form"/> class instance to get the icon to be used with the <see cref="T:System.Windows.Forms.PrintPreviewDialog"/> dialog.</param>
+            <param name="previewDialogTitle">The title to use with the <see cref="T:System.Windows.Forms.PrintPreviewDialog"/> class instance.</param>
+            <returns><c>true</c> if the user accepted the optional dialogs, no exceptions were thrown and the document was printed successfully, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:VPKSoft.WinFormsRtfPrint.RtfPrint.PrintRichTextContents(System.Boolean,System.Boolean,System.Drawing.Icon,System.String)">
+            <summary>
+            Prints the contents of the <see cref="P:VPKSoft.WinFormsRtfPrint.RtfPrint.RichTextBox"/> instance.
+            </summary>
+            <param name="showPrintPreview">if set to <c>true</c> a print preview dialog is shown before printing the document.</param>
+            <param name="showPrintDialog">if set to <c>true</c> a <see cref="T:System.Windows.Forms.PrintDialog"/> is shown before printing.</param>
+            <param name="icon">The icon to use with the <see cref="T:System.Windows.Forms.PrintPreviewDialog"/> instance.</param>
+            <param name="previewDialogTitle">The title to use with the <see cref="T:System.Windows.Forms.PrintPreviewDialog"/> class instance.</param>
+            <returns><c>true</c> if the user accepted the optional dialogs, no exceptions were thrown and the document was printed successfully, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:VPKSoft.WinFormsRtfPrint.RtfPrint.PrintRichTextContents(System.Windows.Forms.IWin32Window,System.Boolean,System.Boolean,System.Reflection.Assembly)">
+            <summary>
+            Prints the contents of the <see cref="P:VPKSoft.WinFormsRtfPrint.RtfPrint.RichTextBox"/> instance.
+            </summary>
+            <param name="owner">Any object that implements <see cref="T:System.Windows.Forms.IWin32Window" /> that represents the top-level window that will own the modal dialog box.</param>
+            <param name="showPrintPreview">if set to <c>true</c> a print preview dialog is shown before printing the document.</param>
+            <param name="showPrintDialog">if set to <c>true</c> a <see cref="T:System.Windows.Forms.PrintDialog"/> is shown before printing.</param>
+            <param name="assembly">An assembly to get an icon for the <see cref="T:System.Windows.Forms.PrintPreviewDialog"/> dialog.</param>
+            <returns><c>true</c> if the user accepted the optional dialogs, no exceptions were thrown and the document was printed successfully, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:VPKSoft.WinFormsRtfPrint.RtfPrint.PrintRichTextContents(System.Boolean,System.Boolean,System.Reflection.Assembly)">
+            <summary>
+            Prints the contents of the <see cref="P:VPKSoft.WinFormsRtfPrint.RtfPrint.RichTextBox"/> instance.
+            </summary>
+            <param name="showPrintPreview">if set to <c>true</c> a print preview dialog is shown before printing the document.</param>
+            <param name="showPrintDialog">if set to <c>true</c> a <see cref="T:System.Windows.Forms.PrintDialog"/> is shown before printing.</param>
+            <param name="assembly">An assembly to get an icon for the <see cref="T:System.Windows.Forms.PrintPreviewDialog"/> dialog.</param>
+            <returns><c>true</c> if the user accepted the optional dialogs, no exceptions were thrown and the document was printed successfully, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:VPKSoft.WinFormsRtfPrint.RtfPrint.PrintRichTextContents(System.Windows.Forms.IWin32Window,System.Boolean,System.Boolean,System.Windows.Forms.Form)">
+            <summary>
+            Prints the contents of the <see cref="P:VPKSoft.WinFormsRtfPrint.RtfPrint.RichTextBox"/> instance.
+            </summary>
+            <param name="owner">Any object that implements <see cref="T:System.Windows.Forms.IWin32Window" /> that represents the top-level window that will own the modal dialog box.</param>
+            <param name="showPrintPreview">if set to <c>true</c> a print preview dialog is shown before printing the document.</param>
+            <param name="showPrintDialog">if set to <c>true</c> a <see cref="T:System.Windows.Forms.PrintDialog"/> is shown before printing.</param>
+            <param name="iconForm">A <see cref="T:System.Windows.Forms.Form"/> class instance to get the icon to be used with the <see cref="T:System.Windows.Forms.PrintPreviewDialog"/> dialog.</param>
+            <returns><c>true</c> if the user accepted the optional dialogs, no exceptions were thrown and the document was printed successfully, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:VPKSoft.WinFormsRtfPrint.RtfPrint.PrintRichTextContents(System.Boolean,System.Boolean,System.Windows.Forms.Form)">
+            <summary>
+            Prints the contents of the <see cref="P:VPKSoft.WinFormsRtfPrint.RtfPrint.RichTextBox"/> instance.
+            </summary>
+            <param name="showPrintPreview">if set to <c>true</c> a print preview dialog is shown before printing the document.</param>
+            <param name="showPrintDialog">if set to <c>true</c> a <see cref="T:System.Windows.Forms.PrintDialog"/> is shown before printing.</param>
+            <param name="iconForm">A <see cref="T:System.Windows.Forms.Form"/> class instance to get the icon to be used with the <see cref="T:System.Windows.Forms.PrintPreviewDialog"/> dialog.</param>
+            <returns><c>true</c> if the user accepted the optional dialogs, no exceptions were thrown and the document was printed successfully, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:VPKSoft.WinFormsRtfPrint.RtfPrint.PrintRichTextContents(System.Boolean,System.Boolean,System.Drawing.Icon)">
+            <summary>
+            Prints the contents of the <see cref="P:VPKSoft.WinFormsRtfPrint.RtfPrint.RichTextBox"/> instance.
+            </summary>
+            <param name="showPrintPreview">if set to <c>true</c> a print preview dialog is shown before printing the document.</param>
+            <param name="showPrintDialog">if set to <c>true</c> a <see cref="T:System.Windows.Forms.PrintDialog"/> is shown before printing.</param>
+            <param name="icon">The icon to use with the <see cref="T:System.Windows.Forms.PrintPreviewDialog"/> instance.</param>
+            <returns><c>true</c> if the user accepted the optional dialogs, no exceptions were thrown and the document was printed successfully, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:VPKSoft.WinFormsRtfPrint.RtfPrint.PrintRichTextContents(System.Windows.Forms.IWin32Window,System.Boolean,System.Boolean,System.Drawing.Icon,System.String,System.Boolean)">
+            <summary>
+            Prints the contents of the <see cref="P:VPKSoft.WinFormsRtfPrint.RtfPrint.RichTextBox"/> instance.
+            </summary>
+            <param name="owner">Any object that implements <see cref="T:System.Windows.Forms.IWin32Window" /> that represents the top-level window that will own the modal dialog box.</param>
+            <param name="showPrintPreview">if set to <c>true</c> a print preview dialog is shown before printing the document.</param>
+            <param name="showPrintDialog">if set to <c>true</c> a <see cref="T:System.Windows.Forms.PrintDialog"/> is shown before printing.</param>
+            <param name="icon">The icon to use with the <see cref="T:System.Windows.Forms.PrintPreviewDialog"/> instance.</param>
+            <param name="previewDialogTitle">The title to use with the <see cref="T:System.Windows.Forms.PrintPreviewDialog"/> class instance.</param>
+            <param name="onlyPreview">A value indicating whether to only show the preview of the print document.</param>
+            <returns><c>true</c> if the user accepted the optional dialogs, no exceptions were thrown and the document was printed successfully, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:VPKSoft.WinFormsRtfPrint.RtfPrint.HundredthInchToTwips(System.Int32)">
+            <summary>
+            Convert between 1/100 inch (unit used by the .NET framework)
+            and twips (1/1440 inch, used by Win32 API calls)
+            </summary>
+            <param name="n">Value in 1/100 inch</param>
+            <returns>Value in twips</returns>
+        </member>
+        <member name="M:VPKSoft.WinFormsRtfPrint.RtfPrint.FormatRangeDone(System.IntPtr)">
+            <summary>
+            Free cached data from rich edit control after printing
+            </summary>
+            <param name="handle">The handle to the <see cref="P:VPKSoft.WinFormsRtfPrint.RtfPrint.RichTextBox"/> control</param>
+        </member>
+        <member name="M:VPKSoft.WinFormsRtfPrint.RtfPrint.FormatRange(System.IntPtr,System.Boolean,System.Drawing.Printing.PrintPageEventArgs,System.Int32,System.Int32)">
+            <summary>
+            Calculate or render the contents of our RichTextBox for printing
+            </summary>
+            <param name="measureOnly">If true, only the calculation is performed,
+            otherwise the text is rendered as well</param>
+            <param name="e">The PrintPageEventArgs object from the
+            PrintPage event</param>
+            <param name="charFrom">Index of first character to be printed</param>
+            <param name="charTo">Index of last character to be printed</param>
+            <param name="handle">The handle to the <see cref="P:VPKSoft.WinFormsRtfPrint.RtfPrint.RichTextBox"/> control</param>
+            <returns>(Index of last character that fitted on the
+            page) + 1</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.36123.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecuJournal", "SecuJournal\SecuJournal.csproj", "{338BEC45-8520-4F7F-9A49-1D15AE32C8EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{338BEC45-8520-4F7F-9A49-1D15AE32C8EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{338BEC45-8520-4F7F-9A49-1D15AE32C8EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{338BEC45-8520-4F7F-9A49-1D15AE32C8EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{338BEC45-8520-4F7F-9A49-1D15AE32C8EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6E3767BB-2973-45C7-B402-3E36F79D14D0}
+	EndGlobalSection
+EndGlobal
